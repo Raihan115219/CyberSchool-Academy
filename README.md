@@ -24,7 +24,8 @@ cyberschool-redesign/
 ├── css/styles.css             # custom effects: hero bg, artwork panels, cards, carousel, dialog
 ├── js/main.js                 # mobile menu, dropdowns, search dialog, carousel, demo notices
 ├── assets/images/hero-shield.svg  # animated hero illustration (self-contained SVG)
-├── assets/icons/logo-mark.svg     # temporary logo mark + favicon
+├── assets/images/cyberschool-logo.png  # official logo (from cyberschoolacademy.com, cropped)
+├── assets/icons/favicon.png       # 64px favicon made from the logo
 └── package.json
 ```
 
@@ -42,13 +43,13 @@ Copy comes from the live site where it could be verified (checked on 27 Oct 2026
 - **Stats band:** the site's own published figures (2015, 10,000+, 50+ instructors, 50+ partner companies), labelled as such
 - **/pages/events:** three listed sessions and three past recordings. They are dated early 2025, so the section shows the dates and points to the live page for current events instead of calling them "upcoming".
 - **/pages/blog:** three posts with their categories, dates and excerpts
+- **Logo:** the official `logo.png` from the live site, cropped to the shield
 - All footer, resource and quick-link destinations
 
 Demo-only content:
 
 - The headline, the eyebrow, the three hero feature highlights and the announcement text
 - The hero dashboard labels (Network Security, Threat Analysis and so on), which are decorative
-- The logo, a stand-in SVG shield. To use the real one, put the official `logo.png` in `assets/icons/` and update the two `<img>` tags.
 
 Some content from the live site is deliberately left out:
 
