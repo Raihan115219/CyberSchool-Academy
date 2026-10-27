@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CyberSchool Academy — Learn Cybersecurity (UI Redesign Demo)</title>
+  <meta name="description" content="UI redesign demo of the CyberSchool Academy landing page: cybersecurity, digital forensics, OSINT, ethical hacking and cyber law departments.">
+  <meta name="theme-color" content="#080D18">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+  <link rel="preload" as="image" href="assets/images/hero-shield.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Icon sprite (Lucide-style strokes) -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3M7 15h10"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M8 17v-5M13 17V8M18 17v-9"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-fingerprint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4M14 13.12c0 2.38 0 6.38-1 8.88M17.29 21.02c.12-.6.43-2.3.5-3.02M2 12a10 10 0 0 1 18-6M2 16h.01M21.8 16c.2-2 .131-5.354 0-6M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2M8.65 22c.21-.66.45-1.32.57-2M9 6.8a6 6 0 0 1 9 5.2v2"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="17" rx="2.5"/><path d="m7 9 3 3-3 3M13 15h4"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1ZM2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1ZM7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+      <symbol id="i-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></symbol>
+    </defs>
+  </svg>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky top-0 z-50" data-header>
+    <nav class="container-site flex h-[72px] items-center justify-between gap-4" aria-label="Primary">
+      <a href="#top" class="brand flex shrink-0 items-center gap-2.5" aria-label="CyberSchool Academy home">
+        <img src="assets/icons/logo-mark.svg" alt="" width="40" height="40" class="size-9 sm:size-10">
+        <span class="font-display leading-none">
+          <span class="block text-[1.15rem] font-bold text-fg sm:text-[1.3rem]">CyberSchool</span>
+          <span class="block text-[1.05rem] font-bold text-cyan sm:text-[1.2rem]">Academy</span>
+        </span>
+      </a>
+
+      <ul class="hidden items-center gap-6 lg:flex xl:gap-9">
+        <li class="relative" data-dropdown>
+          <button type="button" class="nav-link" aria-expanded="false" aria-controls="menu-courses" data-dropdown-toggle>
+            Courses <svg class="size-4 transition-transform" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <div id="menu-courses" class="dropdown" hidden>
+            <a href="#dept-cyber-security" class="dropdown-item"><svg aria-hidden="true"><use href="#i-shield"/></svg>Cyber Security</a>
+            <a href="#dept-forensics" class="dropdown-item"><svg aria-hidden="true"><use href="#i-fingerprint"/></svg>Digital Forensics</a>
+            <a href="#dept-hacking" class="dropdown-item"><svg aria-hidden="true"><use href="#i-terminal"/></svg>Ethical Hacking</a>
+            <a href="#dept-osint" class="dropdown-item"><svg aria-hidden="true"><use href="#i-radar"/></svg>OSINT</a>
+            <a href="#dept-law" class="dropdown-item"><svg aria-hidden="true"><use href="#i-scale"/></svg>Cyber Law</a>
+            <a href="#dept-university" class="dropdown-item"><svg aria-hidden="true"><use href="#i-landmark"/></svg>University Programs</a>
+          </div>
+        </li>
+        <li><a href="#learning-paths" class="nav-link">Learning Paths</a></li>
+        <li><a href="#events" class="nav-link">Events</a></li>
+        <li class="relative" data-dropdown>
+          <button type="button" class="nav-link" aria-expanded="false" aria-controls="menu-resources" data-dropdown-toggle>
+            Resources <svg class="size-4 transition-transform" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <div id="menu-resources" class="dropdown" hidden>
+            <a href="#events" class="dropdown-item"><svg aria-hidden="true"><use href="#i-calendar"/></svg>Events &amp; Webinars</a>
+            <a href="#blog" class="dropdown-item"><svg aria-hidden="true"><use href="#i-book"/></svg>Blog</a>
+            <a href="#resources" class="dropdown-item"><svg aria-hidden="true"><use href="#i-briefcase"/></svg>Jobs</a>
+            <a href="#resources" class="dropdown-item"><svg aria-hidden="true"><use href="#i-badge"/></svg>Certificate Verification</a>
+          </div>
+        </li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button type="button" class="icon-btn" aria-label="Search the page" data-search-open>
+          <svg class="size-5" aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
+        <button type="button" class="btn-outline-sm hidden sm:inline-flex" data-demo-message="Log in is not part of this UI demo. Sign-in is handled on the live CyberSchool site.">Log in</button>
+        <a href="#learning-paths" class="btn-primary hidden md:inline-flex lg:hidden xl:inline-flex">
+          Explore Courses <svg class="size-4" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <button type="button" class="icon-btn lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+          <svg class="size-6" aria-hidden="true" data-menu-icon><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu lg:hidden" hidden>
+      <div class="container-site pt-2 pb-6">
+        <ul class="divide-y divide-line/70">
+          <li><a href="#learning-paths" class="mobile-link">Courses</a></li>
+          <li><a href="#learning-paths" class="mobile-link">Learning Paths</a></li>
+          <li><a href="#events" class="mobile-link">Events</a></li>
+          <li><a href="#blog" class="mobile-link">Blog</a></li>
+          <li><a href="#resources" class="mobile-link">Resources</a></li>
+          <li><a href="#about" class="mobile-link">About</a></li>
+        </ul>
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          <button type="button" class="btn-outline-sm w-full" data-demo-message="Log in is not part of this UI demo. Sign-in is handled on the live CyberSchool site.">Log in</button>
+          <a href="#learning-paths" class="btn-primary w-full">Explore Courses <svg class="size-4" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ ANNOUNCEMENT ============ -->
+  <div class="announce" data-announce>
+    <div class="container-site relative flex min-h-11 items-center justify-center gap-2.5 py-2 pr-10 text-center text-[0.82rem] sm:text-sm">
+      <svg class="size-5 shrink-0 text-neon" aria-hidden="true"><use href="#i-megaphone"/></svg>
+      <p class="text-fg-2">
+        Explore 9 professional courses across six departments
+        <span class="hidden sm:inline">—</span>
+        <a href="#learning-paths" class="inline-flex items-center gap-1 font-medium text-cyan hover:text-sky">Browse departments <svg class="size-3.5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </p>
+      <button type="button" class="announce-close" aria-label="Dismiss announcement" data-announce-close>
+        <svg class="size-4" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="top" class="hero relative overflow-hidden" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <div class="container-site relative grid items-center gap-8 pt-12 pb-14 sm:pt-16 lg:grid-cols-[1.05fr_1fr] lg:gap-4 lg:pt-12 lg:pb-14">
+        <div class="max-w-[38rem]">
+          <p class="eyebrow reveal">Build skills. Defend the future.</p>
+          <h1 id="hero-title" class="reveal mt-4 text-[clamp(2.35rem,6.4vw,4.35rem)] leading-[1.04] font-bold text-fg">
+            Your Future in <span class="text-cyan">Cybersecurity</span> Starts Here.
+          </h1>
+          <p class="reveal mt-5 max-w-[34rem] text-[clamp(1.02rem,1.5vw,1.25rem)] leading-relaxed text-fg-2">
+            Comprehensive cybersecurity training from industry experts. Learn ethical hacking, penetration testing, OSINT, digital forensics, and more.
+          </p>
+
+          <div class="reveal mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+            <a href="#learning-paths" class="btn-primary btn-lg">
+              Explore Courses <svg class="size-5" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="#learning-paths" class="btn-ghost btn-lg">View Learning Paths</a>
+          </div>
+
+          <ul class="reveal mt-10 grid gap-4 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line">
+            <li class="flex items-center gap-3 sm:pr-4">
+              <span class="feature-icon text-neon"><svg class="size-5" aria-hidden="true"><use href="#i-flask"/></svg></span>
+              <span>
+                <span class="block text-sm font-semibold text-fg">Hands-on labs</span>
+                <span class="block text-[0.8rem] text-fg-3">Real-world scenarios</span>
+              </span>
+            </li>
+            <li class="flex items-center gap-3 sm:px-4">
+              <span class="feature-icon text-cyan"><svg class="size-5" aria-hidden="true"><use href="#i-cap"/></svg></span>
+              <span>
+                <span class="block text-sm font-semibold text-fg">Expert-led</span>
+                <span class="block text-[0.8rem] text-fg-3">Learn from practitioners</span>
+              </span>
+            </li>
+            <li class="flex items-center gap-3 sm:pl-4">
+              <span class="feature-icon text-neon"><svg class="size-5" aria-hidden="true"><use href="#i-chart"/></svg></span>
+              <span>
+                <span class="block text-sm font-semibold text-fg">Career-focused</span>
+                <span class="block text-[0.8rem] text-fg-3">Job-ready skills</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hero artwork: animated SVG shield + HTML dashboard panels -->
+        <div class="hero-art reveal mx-auto w-full max-w-[600px] lg:-mr-[3%] lg:w-[106%] lg:max-w-none lg:justify-self-end">
+          <img src="assets/images/hero-shield.svg" width="640" height="620" fetchpriority="high"
+               alt="Illustration of a glowing blue security shield with circuit traces, standing on a holographic platform and linked to floating security dashboards."
+               class="relative z-[1] block h-auto w-full">
+
+          <div class="panel panel--net" aria-hidden="true">
+            <p class="panel-head"><svg><use href="#i-shield"/></svg>Network Security</p>
+            <div class="flex items-center gap-[6%]">
+              <div class="panel-lines flex-1"><i></i><i></i><i></i><i></i><i></i></div>
+              <svg class="panel-globe"><use href="#i-globe"/></svg>
+            </div>
+          </div>
+
+          <div class="panel panel--threat" aria-hidden="true">
+            <p class="panel-head">Threat Analysis</p>
+            <div class="flex items-end gap-[6%]">
+              <svg class="panel-spark" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <path d="M0 34 10 28 18 31 28 20 36 24 46 12 54 18 64 9 72 15 82 6 92 11 100 4" />
+              </svg>
+              <div class="panel-lines w-[34%]"><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+
+          <div class="panel panel--incident" aria-hidden="true">
+            <p class="panel-head"><svg><use href="#i-alert"/></svg>Incident Response</p>
+            <div class="panel-rows">
+              <span><b></b><i></i></span>
+              <span><b></b><i></i></span>
+              <span><b></b><i></i></span>
+              <span><b></b><i></i></span>
+            </div>
+          </div>
+
+          <div class="panel panel--forensics" aria-hidden="true">
+            <p class="panel-head"><svg><use href="#i-fingerprint"/></svg>Digital Forensics</p>
+            <div class="flex items-center gap-[8%]">
+              <svg class="panel-print"><use href="#i-fingerprint"/></svg>
+              <div class="panel-rows flex-1">
+                <span><b></b><i></i></span>
+                <span><b></b><i></i></span>
+                <span><b></b><i></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topic ticker (topics listed on cyberschoolacademy.com) -->
+    <div class="ticker" aria-label="Topics covered">
+      <ul class="ticker-track">
+        <li>Zero Trust Architecture</li>
+        <li>Advanced Threat Hunting</li>
+        <li>Security Operations Center</li>
+        <li>Incident Response</li>
+        <li>Vulnerability Management</li>
+        <li>Cloud Security</li>
+        <li aria-hidden="true">Zero Trust Architecture</li>
+        <li aria-hidden="true">Advanced Threat Hunting</li>
+        <li aria-hidden="true">Security Operations Center</li>
+        <li aria-hidden="true">Incident Response</li>
+        <li aria-hidden="true">Vulnerability Management</li>
+        <li aria-hidden="true">Cloud Security</li>
+      </ul>
+    </div>
+
+    <!-- ============ AT A GLANCE (figures published on cyberschoolacademy.com) ============ -->
+    <section class="stats-band py-12 sm:py-14" aria-labelledby="stats-title">
+      <div class="container-site">
+        <h2 id="stats-title" class="sr-only">CyberSchool at a glance</h2>
+        <dl class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+          <div class="stat" data-reveal>
+            <span class="stat-icon text-cyan"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>
+            <dt class="stat-label">Founded</dt>
+            <dd class="stat-value"><span data-count="2015" data-count-plain>2015</span></dd>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat-icon text-neon"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>
+            <dt class="stat-label">Professionals trained</dt>
+            <dd class="stat-value"><span data-count="10000">10,000</span>+</dd>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat-icon text-sky"><svg aria-hidden="true"><use href="#i-award"/></svg></span>
+            <dt class="stat-label">Expert instructors</dt>
+            <dd class="stat-value"><span data-count="50">50</span>+</dd>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat-icon text-violet"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+            <dt class="stat-label">Partner companies</dt>
+            <dd class="stat-value"><span data-count="50">50</span>+</dd>
+          </div>
+        </dl>
+        <p class="mt-5 text-center text-xs text-fg-3" data-reveal>Figures as published on cyberschoolacademy.com.</p>
+      </div>
+    </section>
+
+    <!-- ============ LEARNING PATHS / DEPARTMENTS ============ -->
+    <section id="learning-paths" class="section-panel py-16 sm:py-20" aria-labelledby="paths-title">
+      <div class="container-site">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+          <div>
+            <p class="eyebrow">Learn. Practice. Grow.</p>
+            <h2 id="paths-title" class="mt-3 text-[clamp(1.9rem,4vw,2.75rem)] leading-tight font-bold">Choose Your Learning Path</h2>
+            <p class="mt-3 max-w-xl text-fg-2">Six dedicated departments covering all aspects of cybersecurity and digital defense — 9 professional courses to choose from.</p>
+          </div>
+          <a href="https://cyberschoolacademy.com/pages/courses" target="_blank" rel="noopener" class="btn-outline-sm self-start sm:self-auto">
+            View All Courses <svg class="size-4" aria-hidden="true"><use href="#i-arrow"/></svg>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </div>
+
+        <!-- Primary paths -->
+        <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <a id="dept-cyber-security" href="https://cyberschoolacademy.com/pages/courses?dept=cyber-security" target="_blank" rel="noopener" class="path-card path-card--cyan">
+            <div class="flex items-start gap-4">
+              <span class="path-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-semibold text-fg">Cyber Security</h3>
+                <span class="level level--cyan mt-2">Beginner – Advanced</span>
+              </div>
+              <span class="path-arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <p class="mt-4 text-[0.95rem] leading-relaxed text-fg-2">Core security principles, threat modeling, and defense strategies.</p>
+            <ul class="mt-auto flex flex-wrap gap-2 pt-6" aria-label="Topics">
+              <li class="tag">Core Principles</li><li class="tag">Threat Modeling</li><li class="tag">Defense Strategies</li>
+            </ul>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+
+          <a id="dept-forensics" href="https://cyberschoolacademy.com/pages/courses?dept=forensics" target="_blank" rel="noopener" class="path-card path-card--violet">
+            <div class="flex items-start gap-4">
+              <span class="path-icon"><svg aria-hidden="true"><use href="#i-fingerprint"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-semibold text-fg">Digital Forensics</h3>
+                <span class="level level--violet mt-2">Intermediate – Professional</span>
+              </div>
+              <span class="path-arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <p class="mt-4 text-[0.95rem] leading-relaxed text-fg-2">Evidence collection, analysis, and incident investigation techniques.</p>
+            <ul class="mt-auto flex flex-wrap gap-2 pt-6" aria-label="Topics">
+              <li class="tag">Evidence Collection</li><li class="tag">Analysis</li><li class="tag">Investigation</li>
+            </ul>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+
+          <a id="dept-hacking" href="https://cyberschoolacademy.com/pages/courses?dept=hacking" target="_blank" rel="noopener" class="path-card path-card--green md:col-span-2 lg:col-span-1">
+            <div class="flex items-start gap-4">
+              <span class="path-icon"><svg aria-hidden="true"><use href="#i-terminal"/></svg></span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-semibold text-fg">Ethical Hacking</h3>
+                <span class="level level--green mt-2">Advanced – Professional</span>
+              </div>
+              <span class="path-arrow"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <p class="mt-4 text-[0.95rem] leading-relaxed text-fg-2">Penetration testing, exploitation techniques, and security assessments.</p>
+            <ul class="mt-auto flex flex-wrap gap-2 pt-6" aria-label="Topics">
+              <li class="tag">Penetration Testing</li><li class="tag">Exploitation</li><li class="tag">Assessments</li>
+            </ul>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </div>
+
+        <!-- Secondary departments -->
+        <div class="mt-5 grid gap-5 md:grid-cols-3">
+          <a id="dept-osint" href="https://cyberschoolacademy.com/pages/courses?dept=osint" target="_blank" rel="noopener" class="dept-card">
+            <span class="dept-icon text-sky"><svg aria-hidden="true"><use href="#i-radar"/></svg></span>
+            <span class="min-w-0">
+              <span class="flex flex-wrap items-center gap-x-2 gap-y-1"><span class="font-display text-lg font-semibold text-fg">OSINT</span><span class="text-xs text-fg-3">Beginner – Intermediate</span></span>
+              <span class="mt-1 block text-sm leading-relaxed text-fg-2">Open Source Intelligence and reconnaissance methodologies.</span>
+            </span>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+          <a id="dept-law" href="https://cyberschoolacademy.com/pages/courses?dept=law" target="_blank" rel="noopener" class="dept-card">
+            <span class="dept-icon text-violet"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>
+            <span class="min-w-0">
+              <span class="flex flex-wrap items-center gap-x-2 gap-y-1"><span class="font-display text-lg font-semibold text-fg">Cyber Law</span><span class="text-xs text-fg-3">Intermediate – Professional</span></span>
+              <span class="mt-1 block text-sm leading-relaxed text-fg-2">Legal frameworks, compliance, and ethical considerations in cybersecurity.</span>
+            </span>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+          <a id="dept-university" href="https://cyberschoolacademy.com/pages/university" target="_blank" rel="noopener" class="dept-card">
+            <span class="dept-icon text-neon"><svg aria-hidden="true"><use href="#i-landmark"/></svg></span>
+            <span class="min-w-0">
+              <span class="flex flex-wrap items-center gap-x-2 gap-y-1"><span class="font-display text-lg font-semibold text-fg">University Programs</span><span class="text-xs text-fg-3">Academic Degree</span></span>
+              <span class="mt-1 block text-sm leading-relaxed text-fg-2">Degree programs: BCA, MCA, B.Tech, Diploma, and Ph.D</span>
+            </span>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </div>
+
+        <!-- Featured course (as listed on the live homepage) -->
+        <article class="featured-course mt-5" aria-labelledby="featured-title">
+          <div class="flex min-w-0 items-center gap-4">
+            <span class="featured-icon"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>
+            <div class="min-w-0">
+              <p class="text-[0.7rem] font-semibold tracking-[0.2em] text-neon uppercase">Featured course</p>
+              <h3 id="featured-title" class="mt-1 text-xl font-semibold text-fg sm:text-2xl">Cyber Law &amp; Compliance</h3>
+            </div>
+          </div>
+          <ul class="flex flex-wrap gap-2" aria-label="Course details">
+            <li class="meta-chip"><svg aria-hidden="true"><use href="#i-calendar"/></svg>6 Weeks</li>
+            <li class="meta-chip"><svg aria-hidden="true"><use href="#i-chart"/></svg>Intermediate Level</li>
+            <li class="meta-chip"><svg aria-hidden="true"><use href="#i-cap"/></svg>35 Seats</li>
+            <li class="meta-chip meta-chip--price">$399</li>
+          </ul>
+          <a href="https://cyberschoolacademy.com/pages/courses?dept=law" target="_blank" rel="noopener" class="btn-outline-sm shrink-0">
+            View course <svg class="size-4" aria-hidden="true"><use href="#i-external"/></svg>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ WHY CYBERSCHOOL ============ -->
+    <section id="about" class="py-16 sm:py-20" aria-labelledby="about-title">
+      <div class="container-site">
+        <!-- About: mission & vision (from /pages/about) -->
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-16">
+          <div data-reveal="left">
+            <p class="eyebrow">About our academy</p>
+            <h2 id="about-title" class="mt-3 text-[clamp(1.9rem,4vw,2.75rem)] leading-tight font-bold">Empowering the Next Generation of <span class="text-cyan">Cybersecurity</span> Professionals</h2>
+          </div>
+          <p class="text-lg leading-relaxed text-fg-2" data-reveal="right">Founded in 2015, CyberSchool has trained over 10,000 cybersecurity professionals who now work at leading global organizations.</p>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          <article class="mv-card mv-card--cyan">
+            <span class="mv-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <h3 class="mt-5 text-xl font-semibold">Our Mission</h3>
+            <p class="mt-2 leading-relaxed text-fg-2">To democratize cybersecurity education and create a world where skilled security professionals can defend digital infrastructure against evolving threats. We bridge the gap between theory and industry practice through hands-on training and mentorship.</p>
+          </article>
+          <article class="mv-card mv-card--green">
+            <span class="mv-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <h3 class="mt-5 text-xl font-semibold">Our Vision</h3>
+            <p class="mt-2 leading-relaxed text-fg-2">To be the world's most trusted cybersecurity education platform, producing competent professionals who make the internet safer. We envision a future where every organization has access to top-tier security talent trained at CyberSchool.</p>
+          </article>
+        </div>
+
+        <!-- Why CyberSchool: a circuit tree that grows as you scroll -->
+        <div id="why" class="mt-20 sm:mt-24">
+          <div class="mx-auto max-w-2xl text-center" data-reveal>
+            <p class="eyebrow">Why choose CyberSchool</p>
+            <h2 class="mt-3 text-[clamp(1.75rem,3.6vw,2.5rem)] leading-tight font-bold">Industry-Proven <span class="text-cyan">Excellence</span></h2>
+            <p class="mt-4 text-lg leading-relaxed text-fg-2">We combine cutting-edge curriculum with real-world security challenges and expert mentorship.</p>
+          </div>
+
+          <div class="tree mt-12 sm:mt-14" data-tree>
+            <div class="tree-root" aria-hidden="true"><svg><use href="#i-shield"/></svg></div>
+            <span class="tree-trunk" aria-hidden="true" data-tree-trunk>
+              <span class="tree-trunk-fill"><span class="tree-pulse"></span></span>
+            </span>
+
+            <ol class="tree-list">
+              <li class="tree-item tree-item--cyan">
+                <span class="tree-branch" aria-hidden="true"></span>
+                <span class="tree-node" aria-hidden="true"></span>
+                <article class="tree-card">
+                  <span class="tree-num" aria-hidden="true">01</span>
+                  <span class="tree-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>
+                  <h3 class="mt-4 text-lg font-semibold">Advanced Curriculum</h3>
+                  <p class="mt-1.5 text-[0.95rem] leading-relaxed text-fg-2">Learn from hands-on labs, real-world scenarios, and capture-the-flag exercises. Our courses evolve with threat landscape.</p>
+                </article>
+              </li>
+              <li class="tree-item tree-item--green">
+                <span class="tree-branch" aria-hidden="true"></span>
+                <span class="tree-node" aria-hidden="true"></span>
+                <article class="tree-card">
+                  <span class="tree-num" aria-hidden="true">02</span>
+                  <span class="tree-icon"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>
+                  <h3 class="mt-4 text-lg font-semibold">Expert Instructors</h3>
+                  <p class="mt-1.5 text-[0.95rem] leading-relaxed text-fg-2">Learn from certified professionals with 10+ years of experience in top cybersecurity firms worldwide.</p>
+                </article>
+              </li>
+              <li class="tree-item tree-item--sky">
+                <span class="tree-branch" aria-hidden="true"></span>
+                <span class="tree-node" aria-hidden="true"></span>
+                <article class="tree-card">
+                  <span class="tree-num" aria-hidden="true">03</span>
+                  <span class="tree-icon"><svg aria-hidden="true"><use href="#i-award"/></svg></span>
+                  <h3 class="mt-4 text-lg font-semibold">Global Recognition</h3>
+                  <p class="mt-1.5 text-[0.95rem] leading-relaxed text-fg-2">Our certifications are recognized by Fortune 500 companies and government agencies worldwide.</p>
+                </article>
+              </li>
+              <li class="tree-item tree-item--violet">
+                <span class="tree-branch" aria-hidden="true"></span>
+                <span class="tree-node" aria-hidden="true"></span>
+                <article class="tree-card">
+                  <span class="tree-num" aria-hidden="true">04</span>
+                  <span class="tree-icon"><svg aria-hidden="true"><use href="#i-flask"/></svg></span>
+                  <h3 class="mt-4 text-lg font-semibold">Real-World Labs</h3>
+                  <p class="mt-1.5 text-[0.95rem] leading-relaxed text-fg-2">Practice on actual vulnerabilities, not simulated environments. Learn on systems that mirror production networks.</p>
+                </article>
+              </li>
+              <li class="tree-item tree-item--cyan">
+                <span class="tree-branch" aria-hidden="true"></span>
+                <span class="tree-node" aria-hidden="true"></span>
+                <article class="tree-card">
+                  <span class="tree-num" aria-hidden="true">05</span>
+                  <span class="tree-icon"><svg aria-hidden="true"><use href="#i-book"/></svg></span>
+                  <h3 class="mt-4 text-lg font-semibold">Lifetime Access</h3>
+                  <p class="mt-1.5 text-[0.95rem] leading-relaxed text-fg-2">Access all course materials forever. Get lifetime updates as security landscape evolves.</p>
+                </article>
+              </li>
+            </ol>
+
+            <div class="tree-base">
+              <span class="tree-base-node" aria-hidden="true"></span>
+              <p class="tree-base-label">Security First, Always.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS (as published on cyberschoolacademy.com) ============ -->
+    <section id="testimonials" class="testimonials relative overflow-hidden py-16 sm:py-20" aria-labelledby="testimonials-title">
+      <div class="testi-bg" aria-hidden="true"></div>
+
+      <div class="container-site relative grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-14" data-testimonials>
+        <div data-reveal="left">
+          <p class="eyebrow">Student stories</p>
+          <h2 id="testimonials-title" class="mt-3 text-[clamp(1.75rem,3.6vw,2.5rem)] leading-tight font-bold">Learners love <span class="text-cyan">CyberSchool Academy</span></h2>
+          <p class="mt-3 max-w-md text-fg-2">In their own words: testimonials as published on cyberschoolacademy.com.</p>
+
+          <div class="testi-tabs mt-8" role="tablist" aria-label="Choose a testimonial">
+            <button type="button" class="testi-tab is-active" role="tab" id="testi-tab-1" aria-controls="testi-1" aria-selected="true" data-accent="cyan">
+              <span class="avatar avatar--cyan" aria-hidden="true">AJ</span>
+              <span class="testi-tab-text">
+                <span class="testi-tab-name">Arjun Joshi</span>
+                <span class="testi-tab-role">Security Analyst @ TechCorp</span>
+              </span>
+              <span class="testi-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="testi-tab" role="tab" id="testi-tab-2" aria-controls="testi-2" aria-selected="false" tabindex="-1" data-accent="violet">
+              <span class="avatar avatar--violet" aria-hidden="true">SM</span>
+              <span class="testi-tab-text">
+                <span class="testi-tab-name">Sophia Martinez</span>
+                <span class="testi-tab-role">Digital Forensics Investigator</span>
+              </span>
+              <span class="testi-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="testi-tab" role="tab" id="testi-tab-3" aria-controls="testi-3" aria-selected="false" tabindex="-1" data-accent="green">
+              <span class="avatar avatar--green" aria-hidden="true">RK</span>
+              <span class="testi-tab-text">
+                <span class="testi-tab-name">Ravi Kumar</span>
+                <span class="testi-tab-role">Penetration Tester @ SecurityPro</span>
+              </span>
+              <span class="testi-progress" aria-hidden="true"><i></i></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="testi-stage" data-accent="cyan" data-reveal="right">
+          <span class="testi-mark" aria-hidden="true">“</span>
+
+          <div class="testi-panels">
+            <figure id="testi-1" class="testi-panel is-active" role="tabpanel" aria-labelledby="testi-tab-1">
+              <blockquote class="testi-text">CyberSchool transformed my career. The hands-on labs and expert mentorship gave me the confidence to land a role at a Fortune 500 company. Highly recommended!</blockquote>
+              <figcaption class="testi-author">
+                <span class="avatar avatar--cyan avatar--lg" aria-hidden="true">AJ</span>
+                <span><span class="block font-semibold text-fg">Arjun Joshi</span><span class="block text-sm text-fg-3">Security Analyst @ TechCorp</span></span>
+              </figcaption>
+            </figure>
+            <figure id="testi-2" class="testi-panel" role="tabpanel" aria-labelledby="testi-tab-2">
+              <blockquote class="testi-text">The Digital Forensics course was incredibly comprehensive. I went from zero to hero in 8 weeks and passed my certification on the first attempt!</blockquote>
+              <figcaption class="testi-author">
+                <span class="avatar avatar--violet avatar--lg" aria-hidden="true">SM</span>
+                <span><span class="block font-semibold text-fg">Sophia Martinez</span><span class="block text-sm text-fg-3">Digital Forensics Investigator</span></span>
+              </figcaption>
+            </figure>
+            <figure id="testi-3" class="testi-panel" role="tabpanel" aria-labelledby="testi-tab-3">
+              <blockquote class="testi-text">What sets CyberSchool apart is the real-world projects. We worked on actual security scenarios, not just theory. This directly translated to my job performance.</blockquote>
+              <figcaption class="testi-author">
+                <span class="avatar avatar--green avatar--lg" aria-hidden="true">RK</span>
+                <span><span class="block font-semibold text-fg">Ravi Kumar</span><span class="block text-sm text-fg-3">Penetration Tester @ SecurityPro</span></span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="testi-controls">
+            <p class="testi-count" aria-hidden="true"><b data-testi-current>01</b> / 03</p>
+            <div class="flex gap-2">
+              <button type="button" class="round-btn" aria-label="Previous testimonial" data-testi-prev><svg class="size-5" aria-hidden="true"><use href="#i-left"/></svg></button>
+              <button type="button" class="round-btn" aria-label="Next testimonial" data-testi-next><svg class="size-5" aria-hidden="true"><use href="#i-right"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVENTS (from /pages/events) ============ -->
+    <section id="events" class="section-panel py-16 sm:py-20" aria-labelledby="events-title">
+      <div class="container-site">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+          <div>
+            <p class="eyebrow">Live events &amp; webinars</p>
+            <h2 id="events-title" class="mt-3 text-[clamp(1.75rem,3.6vw,2.5rem)] leading-tight font-bold">Learn Live With Industry Experts</h2>
+            <p class="mt-3 max-w-2xl text-fg-2">Live discussions, hands-on workshops, and keynote presentations on the latest cybersecurity trends. Sessions below are as listed on the CyberSchool events page — check it for current dates.</p>
+          </div>
+          <a href="https://cyberschoolacademy.com/pages/events" target="_blank" rel="noopener" class="btn-outline-sm self-start sm:self-auto">
+            All Events <svg class="size-4" aria-hidden="true"><use href="#i-external"/></svg>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          <article class="event-card event-card--cyan">
+            <div class="event-date"><span class="event-day">28</span><span class="event-month">Feb 2025</span></div>
+            <div class="min-w-0">
+              <span class="event-type">Live Webinar</span>
+              <h3 class="mt-2 text-lg font-semibold text-fg">Zero Trust Security Model</h3>
+              <p class="mt-2 text-sm leading-relaxed text-fg-2">Learn how to implement Zero Trust architecture in enterprise environments. Expert session with live Q&amp;A.</p>
+              <p class="event-meta"><svg aria-hidden="true"><use href="#i-calendar"/></svg>2:00 PM – 3:30 PM IST</p>
+            </div>
+          </article>
+          <article class="event-card event-card--green">
+            <div class="event-date"><span class="event-day">07</span><span class="event-month">Mar 2025</span></div>
+            <div class="min-w-0">
+              <span class="event-type">Workshop</span>
+              <h3 class="mt-2 text-lg font-semibold text-fg">Advanced Penetration Testing</h3>
+              <p class="mt-2 text-sm leading-relaxed text-fg-2">Hands-on workshop covering real-world penetration testing scenarios and exploitation techniques.</p>
+              <p class="event-meta"><svg aria-hidden="true"><use href="#i-calendar"/></svg>10:00 AM – 1:00 PM IST</p>
+            </div>
+          </article>
+          <article class="event-card event-card--violet">
+            <div class="event-date"><span class="event-day">15</span><span class="event-month">Mar 2025</span></div>
+            <div class="min-w-0">
+              <span class="event-type">Conference</span>
+              <h3 class="mt-2 text-lg font-semibold text-fg">Annual CyberSecurity Summit 2025</h3>
+              <p class="mt-2 text-sm leading-relaxed text-fg-2">Keynotes from industry leaders, panel discussions, networking sessions, and career fair.</p>
+              <p class="event-meta"><svg aria-hidden="true"><use href="#i-globe"/></svg>Hybrid – Online &amp; Offline</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="recordings mt-5">
+          <p class="flex items-center gap-2 text-sm font-semibold text-fg">
+            <span class="rec-dot" aria-hidden="true"></span> Past event recordings
+            <span class="font-normal text-fg-3">— available for registered students</span>
+          </p>
+          <ul class="mt-4 grid gap-3 md:grid-cols-3">
+            <li class="recording"><span class="text-fg">Incident Response Playbook</span><span>15 Jan 2025</span></li>
+            <li class="recording"><span class="text-fg">Cloud Security Best Practices</span><span>02 Jan 2025</span></li>
+            <li class="recording"><span class="text-fg">Threat Intelligence Fundamentals</span><span>20 Dec 2024</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOG (from /pages/blog) ============ -->
+    <section id="blog" class="py-16 sm:py-20" aria-labelledby="blog-title">
+      <div class="container-site">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+          <div>
+            <p class="eyebrow">CyberSchool blog</p>
+            <h2 id="blog-title" class="mt-3 text-[clamp(1.75rem,3.6vw,2.5rem)] leading-tight font-bold">News, Tutorials &amp; Career Tips</h2>
+            <p class="mt-3 max-w-xl text-fg-2">Latest cybersecurity news, tutorials, career tips, and security alerts.</p>
+          </div>
+          <a href="https://cyberschoolacademy.com/pages/blog" target="_blank" rel="noopener" class="btn-outline-sm self-start sm:self-auto">
+            Visit the Blog <svg class="size-4" aria-hidden="true"><use href="#i-external"/></svg>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <a href="https://cyberschoolacademy.com/pages/blog" target="_blank" rel="noopener" class="post-card post-card--alert">
+            <div class="post-cover" aria-hidden="true"><svg><use href="#i-alert"/></svg></div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="post-meta"><span class="post-cat">Security Alert</span>January 28, 2025</p>
+              <h3 class="mt-3 text-lg leading-snug font-semibold text-fg">CVE-2025-001: Critical Vulnerability Discovered</h3>
+              <p class="mt-2 text-sm leading-relaxed text-fg-2">A critical vulnerability affecting millions of systems has been discovered. Learn how to patch your systems immediately and protect against exploitation attempts…</p>
+              <span class="post-more">Read more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+          <a href="https://cyberschoolacademy.com/pages/blog" target="_blank" rel="noopener" class="post-card post-card--tutorial">
+            <div class="post-cover" aria-hidden="true"><svg><use href="#i-shield"/></svg></div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="post-meta"><span class="post-cat">Tutorial</span>January 25, 2025</p>
+              <h3 class="mt-3 text-lg leading-snug font-semibold text-fg">Zero Trust Architecture: The Future of Security</h3>
+              <p class="mt-2 text-sm leading-relaxed text-fg-2">Explore the principles of Zero Trust security model and how leading organizations are implementing it. A comprehensive guide to modern network security…</p>
+              <span class="post-more">Read more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+          <a href="https://cyberschoolacademy.com/pages/blog" target="_blank" rel="noopener" class="post-card post-card--career md:col-span-2 lg:col-span-1">
+            <div class="post-cover" aria-hidden="true"><svg><use href="#i-briefcase"/></svg></div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="post-meta"><span class="post-cat">Career Tips</span>January 22, 2025</p>
+              <h3 class="mt-3 text-lg leading-snug font-semibold text-fg">5 Career Paths in Cybersecurity 2025</h3>
+              <p class="mt-2 text-sm leading-relaxed text-fg-2">Discover five high-demand career paths in cybersecurity, including salaries, required skills, and growth prospects. Start your journey today…</p>
+              <span class="post-more">Read more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <span class="sr-only">(opens cyberschoolacademy.com in a new tab)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESOURCES ============ -->
+    <section id="resources" class="pb-16 sm:pb-20" aria-labelledby="resources-title">
+      <div class="container-site">
+        <h2 id="resources-title" class="eyebrow" data-reveal>Quick links</h2>
+
+        <ul class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <li><a href="https://cyberschoolacademy.com/pages/jobs" target="_blank" rel="noopener" class="resource-card">
+            <span class="dept-icon text-neon"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+            <span class="flex-1"><span class="block font-semibold text-fg">Jobs &amp; Placement</span><span class="block text-sm text-fg-3">Partner job listings</span></span>
+            <svg class="size-4 text-fg-3" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span>
+          </a></li>
+          <li><a href="https://cyberschoolacademy.com/pages/cert-verify" target="_blank" rel="noopener" class="resource-card">
+            <span class="dept-icon text-violet"><svg aria-hidden="true"><use href="#i-badge"/></svg></span>
+            <span class="flex-1"><span class="block font-semibold text-fg">Verify a Certificate</span><span class="block text-sm text-fg-3">Certificate verification</span></span>
+            <svg class="size-4 text-fg-3" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span>
+          </a></li>
+          <li><a href="https://cyberschoolacademy.com/pages/partner-verify" target="_blank" rel="noopener" class="resource-card">
+            <span class="dept-icon text-cyan"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <span class="flex-1"><span class="block font-semibold text-fg">Partner Verification</span><span class="block text-sm text-fg-3">Check a partner</span></span>
+            <svg class="size-4 text-fg-3" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span>
+          </a></li>
+          <li><a href="https://cyberschoolacademy.com/pages/contact" target="_blank" rel="noopener" class="resource-card">
+            <span class="dept-icon text-sky"><svg aria-hidden="true"><use href="#i-megaphone"/></svg></span>
+            <span class="flex-1"><span class="block font-semibold text-fg">Contact Us</span><span class="block text-sm text-fg-3">Questions &amp; inquiries</span></span>
+            <svg class="size-4 text-fg-3" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span>
+          </a></li>
+        </ul>
+
+        <!-- CTA -->
+        <div class="cta mt-14 sm:mt-16" data-reveal="scale">
+          <div class="relative z-[1] flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div class="max-w-2xl">
+              <h2 class="text-[clamp(1.6rem,3.4vw,2.35rem)] leading-tight font-bold">Ready to Launch Your <span class="text-neon">Cybersecurity</span> Career?</h2>
+              <p class="mt-3 text-fg-2">Join thousands of students who have transformed their careers with CyberSchool education.</p>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href="#learning-paths" class="btn-primary btn-lg">Explore Courses <svg class="size-5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a href="https://cyberschoolacademy.com/pages/contact" target="_blank" rel="noopener" class="btn-ghost btn-lg">Schedule Consultation<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer pt-14 pb-8">
+    <div class="container-site">
+      <div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div class="col-span-2 sm:col-span-3 lg:col-span-1">
+          <a href="#top" class="flex items-center gap-2.5" aria-label="CyberSchool Academy, back to top">
+            <img src="assets/icons/logo-mark.svg" alt="" width="40" height="40" class="size-10" loading="lazy">
+            <span class="font-display leading-none">
+              <span class="block text-xl font-bold text-fg">CyberSchool</span>
+              <span class="block text-lg font-bold text-cyan">Academy</span>
+            </span>
+          </a>
+          <p class="mt-4 max-w-xs text-sm leading-relaxed text-fg-3">Leading cybersecurity education platform with global recognition.</p>
+          <p class="mt-3 text-sm font-semibold text-neon">Security First, Always.</p>
+        </div>
+
+        <nav aria-labelledby="f-programs">
+          <h2 id="f-programs" class="footer-title">Programs</h2>
+          <ul class="mt-4 grid gap-2.5">
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/courses" target="_blank" rel="noopener">All Courses</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/university" target="_blank" rel="noopener">University Programs</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/jobs" target="_blank" rel="noopener">Job Placement</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/events" target="_blank" rel="noopener">Live Events</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="f-verify">
+          <h2 id="f-verify" class="footer-title">Verify</h2>
+          <ul class="mt-4 grid gap-2.5">
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/cert-verify" target="_blank" rel="noopener">Certificate Verification</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/partner-verify" target="_blank" rel="noopener">Partner Verification</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/team-verify" target="_blank" rel="noopener">Team Verification</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="f-company">
+          <h2 id="f-company" class="footer-title">Company</h2>
+          <ul class="mt-4 grid gap-2.5">
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/about" target="_blank" rel="noopener">About</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/contact" target="_blank" rel="noopener">Contact</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a class="footer-link" href="https://cyberschoolacademy.com/pages/terms-of-service" target="_blank" rel="noopener">Terms of Service</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-xs text-fg-3 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span data-year>2025</span> CyberSchool Academy. All rights reserved.</p>
+        <p>UI redesign demo — footer links open the live site in a new tab.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search (filters in-page sections; no backend) -->
+  <dialog class="search-dialog" aria-labelledby="search-title" data-search>
+    <form method="dialog" class="flex items-center gap-3 border-b border-line px-4 py-3">
+      <svg class="size-5 shrink-0 text-fg-3" aria-hidden="true"><use href="#i-search"/></svg>
+      <label id="search-title" for="search-input" class="sr-only">Search this page</label>
+      <input id="search-input" type="search" autocomplete="off" placeholder="Search departments & sections…" class="min-w-0 flex-1 bg-transparent py-2 text-fg placeholder:text-fg-3 focus:outline-none" data-search-input>
+      <button class="icon-btn" aria-label="Close search" value="close"><svg class="size-5" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </form>
+    <ul class="max-h-80 overflow-y-auto p-2" data-search-results></ul>
+    <p class="border-t border-line px-4 py-2.5 text-xs text-fg-3">Demo search — jumps to sections on this page.</p>
+  </dialog>
+
+  <!-- Demo notices -->
+  <div class="toast" role="status" aria-live="polite" data-toast hidden></div>
+</body>
+</html>
