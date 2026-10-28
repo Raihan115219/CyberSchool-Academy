@@ -13,6 +13,7 @@
     initDropdowns();
     initAnnouncement();
     initToasts();
+    initContactForm();
     initSearch();
     initTestimonials();
     initReveal();
@@ -172,6 +173,28 @@
     );
   }
 
+  // ---------- Contact form (preview: nothing is sent) ----------
+  function initContactForm() {
+    const form = $("[data-contact-form]");
+    const note = $("[data-contact-note]");
+    if (!form || !note) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const name = new FormData(form).get("name")?.toString().trim() || "";
+      form.reset();
+      note.textContent = name ? `Thanks, ${name}. We noted your message.` : "Thanks. We noted your message.";
+    });
+
+    form.addEventListener("input", () => {
+      if (note.textContent) note.textContent = "";
+    });
+  }
+
   // ---------- In-page search (demo, no backend) ----------
   function initSearch() {
     const dialog = $("[data-search]");
@@ -194,6 +217,7 @@
       { label: "Events & webinars", kind: "Section", href: "#events" },
       { label: "Blog", kind: "Section", href: "#blog" },
       { label: "Quick links", kind: "Section", href: "#resources" },
+      { label: "Contact", kind: "Section", href: "#contact" },
     ];
 
     const render = (query) => {
@@ -214,7 +238,7 @@
             })
           : [Object.assign(document.createElement("li"), {
               className: "px-3 py-4 text-sm text-fg-3",
-              textContent: "No matching sections in this demo.",
+              textContent: "No matches.",
             })])
       );
     };
